@@ -1,0 +1,33 @@
+﻿@using Travelling.Models.Classes
+@model List<Comment>
+
+@{
+    ViewBag.Title = "CommentList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Comment List</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Comments</th>
+        <th>Blog</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.UserName</td>
+            <td>@x.Email</td>
+            <td>@x.Comments</td>
+            <td>@x.Blog.Title</td>
+            <td><a href="/Admin/DeleteComment/@x.Id" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Admin/BringComment/@x.Id" class="btn btn-warning">Update</a></td>
+        </tr>
+    }
+</table>

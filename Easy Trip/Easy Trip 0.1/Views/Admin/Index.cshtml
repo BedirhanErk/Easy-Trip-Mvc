@@ -1,0 +1,29 @@
+﻿@using Travelling.Models.Classes
+@model List<Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Blog List</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Title</td>
+            <td>@x.Date.ToString("dd/MM/yyyy")</td>
+            <td><a href="/Admin/Delete/@x.Id" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Admin/Update/@x.Id" class="btn btn-warning">Update</a></td>
+            <td><a href="#" class="btn btn-default">Details</a></td>
+        </tr>
+    }
+</table>
+<a href="/Admin/Add/" class="btn btn-primary">Add</a>

@@ -1,0 +1,20 @@
+﻿@using Travelling.Models.Classes
+@model List<AboutMe>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutnew.cshtml";
+}
+
+<div class="content">
+    <div class="wrap">
+        <div class="about">
+            <h3>About</h3>
+
+            @foreach (var x in Model)
+            {
+                <img src="@x.PictureUrl" alt="" />
+                <p>@x.Explanation </p>
+            }
+        </div>
+    </div>
+</div>
